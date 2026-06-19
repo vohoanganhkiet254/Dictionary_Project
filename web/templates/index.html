@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra chính tả OCR — .docx</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>✓ Kiểm tra &amp; sửa chính tả OCR <span class="muted">(.docx)</span></h1>
+  </header>
+
+  <div class="toolbar">
+    <label class="btn btn-primary">
+      📄 Tải file .docx
+      <input type="file" id="fileInput" accept=".docx" hidden>
+    </label>
+    <button class="btn" id="recheckBtn" disabled>🔍 Kiểm tra lại</button>
+    <button class="btn" id="downloadBtn" disabled>⬇️ Tải file đã sửa</button>
+    <span class="status" id="status"></span>
+  </div>
+
+  <div class="legend">
+    <span class="dot wavy"></span> từ nghi sai chính tả — bấm để xem gợi ý
+    &nbsp;·&nbsp; có thể gõ chỉnh sửa trực tiếp trong khung bên dưới
+  </div>
+
+  <main>
+    <div id="editor" class="editor" contenteditable="true" spellcheck="false"
+         placeholder="Nội dung file sẽ hiển thị ở đây…"></div>
+  </main>
+
+  <div id="popup" class="popup hidden"></div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
